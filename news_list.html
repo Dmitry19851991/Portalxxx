@@ -1,0 +1,17 @@
+<!-- my_app/templates/news_list.html -->
+
+{% extends 'default.html' %}
+
+{% block title %}Список новостей{% endblock %}
+
+{% block content %}
+  <h1>Список новостей</h1>
+  {% for post in posts %}
+    <div>
+      <h2>{{ post.title|censor }}</h2>
+      <p>{{ post.created_at|date:"d.m.Y" }}</p>
+      <p>{{ post.content[:20]|censor }}</p>
+      <a href="{% url 'post_detail' post.id %}">Подробнее</a>
+    </div>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,12 @@
+	 git --version
+     <!-- my_app/templates/post_detail.html -->
+
+{% extends 'default.html' %}
+
+{% block title %}{{ post.title|censor }}{% endblock %}
+
+{% block content %}
+  <h1>{{ post.title|censor }}</h1>
+  <p>{{ post.created_at|date:"d.m.Y" }}</p>
+  <p>{{ post.content|censor }}</p>
+{% endblock %}
